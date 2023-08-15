@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<header id="header" th:fragment="header">
+    <a href="/">
+        <img class="site-logo" th:src="@{${theme.config.basics.logo}}">
+      </a>
+      <h1><a href="/"><strong>[[${theme.config.basics.subTitle}]]</strong></a></h1>
+      <span class="discription">[[${theme.config.basics.description}]]</span>
+      <nav>
+        <ul>
+          <li class="nav-item"><a class="icon solid fa-info-circle nav-item-name">分类</a>
+            <ul class="nav-item-child">
+              <li class="category-level-0 category-parent"><a style="cursor: pointer;">旅行日记</a></li>
+              <li class="category-level-0 category-parent"><a style="cursor: pointer;">生活点滴</a></li>
+              <li class="category-level-0 category-parent"><a style="cursor: pointer;">我的设计</a></li>
+            </ul>
+          </li>
+          <li><a type="button" id="fullscreen" class="btn btn-default visible-lg visible-md" alt="切换全屏"><svg
+                class="icon-zmki zmki_dh zmki_wap" aria-hidden="true">
+                <use xlink:href="#icon-zmki-ziyuan-copy"></use>
+              </svg></a></li>
+          <li><a href="#footer">关于</a></li>
+        </ul>
+      </nav>
+</header>
+
+</html>

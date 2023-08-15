@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Footer -->
+<footer id="footer" class="panel" th:fragment="footer">
+    <div class="inner split">
+      <div class="inner split">
+        <div>
+          <section>
+            <h2>关于[[${theme.config.basics.siteTitle}]]</h2>
+            <p>[[${theme.config.about.description}]]</p>
+          </section>
+          <section>
+            <h2>联系我</h2>
+            <ul class="icons" th:if="${not #lists.isEmpty(theme.config.about.socialMedia)}"
+                th:with="socialMedias = ${theme.config.about.socialMedia}">
+              <li th:each="socialMedia : ${socialMedias}">
+                <a th:href="${socialMedia.url}" target="_blank" class="iconfont " th:classappend="${socialMedia.icon}"
+                  rel="noopener nofollow"><span class="label">[[${socialMedia.name}]]</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <span style="color: #b5b5b5; font-size: 0.8em;">
+            <p class="copyright">
+              © 设计 ZHHEO &amp; ZMKI 主题：<a href="https://github.com/zhheo/TimePlus" target="_blank"
+                rel="noopener nofollow">TimePlus</a>. 
+                <th:block th:if="${not #strings.isEmpty(theme.config.basics.icp)}">
+                    <a href="http://beian.miit.gov.cn/" target="_blank"
+                    rel="noopener nofollow">[[${theme.config.basics.icp}]]</a>
+                </th:block>
+                <th:block th:if="${not #strings.isEmpty(theme.config.basics.gongan)}">
+                    <a href="https://www.beian.gov.cn/portal/registerSystemInfo/" target="_blank"
+                    rel="noopener nofollow">[[${theme.config.basics.gongan}]]</a>
+                </th:block>
+                
+            </p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+</html>
