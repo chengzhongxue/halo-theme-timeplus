@@ -1,13 +1,118 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-starter-setting
+  name: theme-timeplus-setting
 spec:
   forms:
-    - group: style
-      label: 样式
+    - group: basics
+      label: 基础
       formSchema:
-        - $formkit: color
-          name: background_color
-          label: 背景颜色
-          value: "#f2f2f2"
+        - $formkit: text
+          name: siteTitle
+          label: 站点标题
+          placeholder: 请输入站点标题
+          value: 困困鱼图集
+        - $formkit: text
+          name: subTitle
+          label: 站点副标题
+          placeholder: 请输入站点副标题
+          value: kkyPlog
+        - $formkit: textarea
+          name: description
+          label: 描述
+          value: 分享生活的小事
+          placeholder: 请输入描述
+        - $formkit: attachment
+          name: logo
+          label: Logo
+          value: https://0206.ink/upload/645fac04e203a.jpeg
+        - $formkit: text
+          name: icp
+          label: ICP 备案
+          placeholder: 请输入 ICP 备案号
+          help: 格式：皖ICP备 xxxxxxxx 号
+        - $formkit: text
+          name: gongan
+          label: 公安备案
+          placeholder: 请输入公安备案号
+          help: 格式：皖公网安备 xxxxxxxx 号
+    - group: about
+      label: 关于
+      formSchema:
+        - $formkit: textarea
+          name: description
+          label: 描述
+          value: 想用照片记录一下生活，可能不会是摄影图展示，它只是记录我当时点滴的快乐。
+          placeholder: 请输入描述
+        - $formkit: repeater
+          name: socialMedia
+          label: 社交媒体
+          value: [ ]
+          children:
+            - $formkit: select
+              name: icon
+              label: 图标
+              options:
+                - label: 电子邮箱
+                  value: icon-mail-line
+                - label: 微信
+                  value: icon-wechat2
+                - label: 公众号
+                  value: icon-weixingongzhonghao
+                - label: 腾讯 QQ
+                  value: icon-qq-line
+                - label: 新浪微博
+                  value: icon-weibo
+                - label: 知乎
+                  value: icon-zhihu-line
+                - label: 豆瓣
+                  value: icon-douban-line
+                - label: 哔哩哔哩
+                  value: icon-bilibili-line
+                - label: GitHub
+                  value: icon-github
+                - label: GitLab
+                  value: icon-gitlab-line
+                - label: 百度
+                  value: icon-baidu-line
+                - label: 掘金
+                  value: icon-juejin
+                - label: 语雀
+                  value: icon-yuque
+                - label: 博客园
+                  value: icon-CN_cnblogs
+                - label: CSDN
+                  value: icon-csdn1
+                - label: LeetCode
+                  value: icon-leetcode
+                - label: 头条
+                  value: icon-jinritoutiao
+                - label: 抖音 / TikTok
+                  value: icon-douyin
+                - label: Telegram
+                  value: icon-telegram-line
+                - label: Facebook
+                  value: icon-facebook-box-line
+                - label: Instagram
+                  value: icon-instagram-line
+                - label: LinkedIn
+                  value: icon-linkedin-box-line
+                - label: Twitter
+                  value: icon-twitter-line
+                - label: Slack
+                  value: icon-slack-line
+                - label: Discord
+                  value: icon-discord-line
+                - label: YouTube
+                  value: icon-youtube-line
+                - label: Steam
+                  value: icon-steam-fill
+                - label: Dribbble
+                  value: icon-dribbble-line
+            - $formkit: text
+              name: name
+              label: 名称
+            - $formkit: url
+              name: url
+              label: 链接
+        

@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  xmlns:th="https://www.thymeleaf.org"
-  th:fragment="html (head,content)"
->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=2"
-    />
-    <title th:text="${site.title}"></title>
-    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
-    <script th:src="@{/assets/js/main.js}"></script>
-    <th:block th:if="${head != null}">
-      <th:block th:replace="${head}" />
-    </th:block>
-  </head>
-  <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-    <section>
-      <th:block th:replace="${content}" />
-    </section>
-  </body>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:fragment="html (head,content)">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
+  <title th:text="${site.title}"></title>
+  <link rel="apple-touch-icon" th:href="${theme.config.basics.logo}">
+  <meta name="apple-mobile-web-app-title" th:content="${theme.config.basics.subTitle}">
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/main.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/noscript.css}">
+  <link media="print"
+        onload='this.media="all"'
+        rel="stylesheet"
+        th:href="@{/assets/iconfont/iconfont.css}">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1635479_m8o2ir6mitf.css">
+  <script charset="utf-8" src="https://hmcdn.baidu.com/static/tongji/plugins/UrlChangeTracker.js"></script>
+  <script src="https://hm.baidu.com/hm.js?1bcd964a9a455530a82f509342e13895"></script>
+  <script src="https://at.alicdn.com/t/font_1635479_m8o2ir6mitf.js"></script>
+
+</head>
+
+<body class="is-preload">
+
+  <header th:replace="~{modules/header :: header}"></header>
+
+  <!-- 内容 -->
+  <th:block th:replace="${content}"></th:block>
+
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/1.7.2/jquery.min.js"></script>
+  <script th:src="@{/assets/js/jquery.poptrox.min.js}"></script>
+  <script th:src="@{/assets/js/browser.min.js}"></script>
+  <script th:src="@{/assets/js/breakpoints.min.js}"></script>
+  <script th:src="@{/assets/js/util.js}"></script>
+  <script th:src="@{/assets/js/main.js}"></script>
+
+
+</body>
+
 </html>

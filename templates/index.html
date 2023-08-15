@@ -1,18 +1,83 @@
 <!DOCTYPE html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
->
-  <th:block th:fragment="content">
-    <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
-    </ul>
-    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
-    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
-  </th:block>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: html(head = null,content = ~{::content})}">
+<th:block th:fragment="content">
+  <div id="wrapper">
+    <!-- Header -->
+    <!-- Main -->
+    <div id="main">
+
+      <article class="thumb img-area">
+        <a class="image my-photo"  alt="loading" href="https://p.zhheo.com/3G75G523690781689316896367.jpeg!plog" >
+          <img class="zmki_px  my-photo" onerror="this.src='https://plog.zhheo.com/usr/themes/time/assets/img/loading.gif';this.onerror=null" 
+          data-src="https://p.zhheo.com/3G75G523690781689316896367.jpeg!plog"   />
+        </a> 
+        <h2>库迪送的环保杯</h2>
+        <p></p>
+        <p>质感很不错，一开始看到咖啡渣制作还挺担心，上手感觉还挺厚实</p>
+        <p></p>
+        <li class="tag-categorys"><a href="https://plog.zhheo.com/category/traveling/">旅行日记</a></li>
+      </article>
+     
+    </div>
+
+    <!-- Footer -->
+    <footer th:replace="~{modules/footer :: footer}"></footer>
+
+    <script type="text/javascript">
+      function isInSight(el) {
+        const bound = el.getBoundingClientRect();
+        const clientHeight = window.innerHeight;
+        //如果只考虑向下滚动加载
+        //const clientWidth=window.innerWeight;
+        return bound.top <= clientHeight + 100;
+      }
+
+      let index = 0;
+      function checkImgs() {
+        const imgs = document.querySelectorAll('.my-photo');
+        for (let i = index; i < imgs.length; i++) {
+          if (isInSight(imgs[i])) {
+            loadImg(imgs[i]);
+            index = i;
+          }
+        }
+        // Array.from(imgs).forEach(el => {
+        //   if (isInSight(el)) {
+        //     loadImg(el);
+        //   }
+        // })
+      }
+
+      function loadImg(el) {
+        if (!el.src) {
+          const source = el.dataset.src;
+          el.src = source;
+        }
+      }
+
+      function throttle(fn, mustRun = 10) {
+        const timer = null;
+        let previous = null;
+        return function () {
+          const now = new Date();
+          const context = this;
+          const args = arguments;
+          if (!previous) {
+            previous = now;
+          }
+          const remaining = now - previous;
+          if (mustRun && remaining >= mustRun) {
+            fn.apply(context, args);
+            previous = now;
+          }
+        }
+      }
+    </script>
+    <script>
+      window.onload = checkImgs;
+      window.onscroll = throttle(checkImgs);
+    </script>
+  </div>
+</th:block>
+
 </html>
