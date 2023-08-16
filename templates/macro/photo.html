@@ -1,7 +1,7 @@
 <th:block th:fragment="photo(photo)">
     <article class="thumb img-area">
         <a class="image my-photo"  th:alt="${photo.spec.description}" th:href="${photo.spec.url}" >
-            <img class="zmki_px  my-photo" th:data-src="${photo.spec.url}"   />
+            <img class="zmki_px  my-photo"  th:attr="onerror='this.src='+@{/assets/img/loading.gif}+';this.onerror=null'" th:data-src="${photo.spec.url}"   />
         </a>
         <h2>[[${photo.spec.displayName}]]</h2>
         <p></p>
@@ -13,4 +13,4 @@
             <a th:onclick="go([[${group.metadata.name}]])">[[${group.spec.displayName}]]</a>
         </li>
     </article>
-</th:block>
+</th:block> 

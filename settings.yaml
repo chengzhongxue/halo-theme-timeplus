@@ -11,17 +11,22 @@ spec:
           name: siteTitle
           label: 站点标题
           placeholder: 请输入站点标题
-          value: 困困鱼图集
+          value: 困困鱼
         - $formkit: text
           name: subTitle
           label: 站点副标题
-          placeholder: 请输入站点副标题
-          value: kkyPlog
+          placeholder: 请输入站点标题
+          value: 时光相册
+        - $formkit: text
+          name: zmkiabout
+          label: 底栏前缀
+          placeholder: 请输入底栏前缀
+          value: 困困鱼
         - $formkit: textarea
-          name: description
-          label: 描述
+          name: zmkiabouts
+          label: 底栏后缀
           value: 分享生活的小事
-          placeholder: 请输入描述
+          placeholder: 请输入底栏后缀
         - $formkit: attachment
           name: logo
           label: Logo
