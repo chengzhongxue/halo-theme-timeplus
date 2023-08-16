@@ -42,7 +42,7 @@ spec:
         - $formkit: textarea
           name: groups
           label: 图库分类
-          help: 请输入想要展示的图库分组名称，以英文逗号隔开
+          help: 请输入想要展示的图库分组名称，可以填入多个分组名，以任意字符隔开
           value:
 
     - group: about

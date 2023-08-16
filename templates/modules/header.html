@@ -35,11 +35,6 @@
         const go = (photo_group_name) => {
             window.location.href = '/?photo_group_name=' + photo_group_name
         }
-        if(window.location.href.indexOf('photo_group_name')===-1){
-            let first = document.getElementById('groups').children[0]
-            let group = first.getAttribute('group')
-            go(group)
-        }
     </script>
 </header>
 

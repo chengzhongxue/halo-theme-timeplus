@@ -1,87 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{layout :: html(head = null,content = ~{::content})}">
 <th:block th:fragment="content">
-  <div id="wrapper">
-    <!-- Header -->
-    <!-- Main -->
-    <div id="main">
-      <th:block th:each="photo : ${photoFinder.listBy(param.photo_group_name)}">
-        <article class="thumb img-area">
-          <a class="image my-photo"  th:alt="${photo.spec.description}" th:href="${photo.spec.url}" >
-            <img class="zmki_px  my-photo" th:data-src="${photo.spec.url}"   />
-          </a>
-          <h2>[[${photo.spec.displayName}]]</h2>
-          <p></p>
-          <p>[[${photo.spec.description}]]</p>
-          <p></p>
-          <li class="tag-categorys"
-              th:each="group : ${photoFinder.groupBy()}"
-              th:if="${#strings.equals(param.photo_group_name,group.metadata.name)}" >
-            <a>[[${group.spec.displayName}]]</a>
-          </li>
-        </article>
-      </th:block>
-     
+    <div id="wrapper">
+        <!-- Header -->
+        <!-- Main -->
+        <div id="main" th:with="groups=${theme.config.picture.groups}">
+            <th:block th:if="${#strings.isEmpty(param.photo_group_name)}">
+                <th:block th:each="group : ${photoFinder.groupBy()}"
+                          th:if="${#strings.contains(groups,group.spec.displayName)}">
+                    <th:block th:each="photo : ${group.photos}">
+                        <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
+                    </th:block>
+                </th:block>
+            </th:block>
+            <th:block th:unless="${#strings.isEmpty(param.photo_group_name)}"
+                      th:each="photo : ${photoFinder.listBy(param.photo_group_name)}">
+                <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
+            </th:block>
+        </div>
+
+        <!-- Footer -->
+        <footer th:replace="~{modules/footer :: footer}"></footer>
+
+        <script type="text/javascript">
+            function isInSight(el) {
+                const bound = el.getBoundingClientRect();
+                const clientHeight = window.innerHeight;
+                //如果只考虑向下滚动加载
+                //const clientWidth=window.innerWeight;
+                return bound.top <= clientHeight + 100;
+            }
+
+            let index = 0;
+
+            function checkImgs() {
+                const imgs = document.querySelectorAll('.my-photo');
+                for (let i = index; i < imgs.length; i++) {
+                    if (isInSight(imgs[i])) {
+                        loadImg(imgs[i]);
+                        index = i;
+                    }
+                }
+                // Array.from(imgs).forEach(el => {
+                //   if (isInSight(el)) {
+                //     loadImg(el);
+                //   }
+                // })
+            }
+
+            function loadImg(el) {
+                if (!el.src) {
+                    const source = el.dataset.src;
+                    el.src = source;
+                }
+            }
+
+            function throttle(fn, mustRun = 10) {
+                const timer = null;
+                let previous = null;
+                return function () {
+                    const now = new Date();
+                    const context = this;
+                    const args = arguments;
+                    if (!previous) {
+                        previous = now;
+                    }
+                    const remaining = now - previous;
+                    if (mustRun && remaining >= mustRun) {
+                        fn.apply(context, args);
+                        previous = now;
+                    }
+                }
+            }
+        </script>
+        <script>
+            window.onload = checkImgs;
+            window.onscroll = throttle(checkImgs);
+        </script>
     </div>
-
-    <!-- Footer -->
-    <footer th:replace="~{modules/footer :: footer}"></footer>
-
-    <script type="text/javascript">
-      function isInSight(el) {
-        const bound = el.getBoundingClientRect();
-        const clientHeight = window.innerHeight;
-        //如果只考虑向下滚动加载
-        //const clientWidth=window.innerWeight;
-        return bound.top <= clientHeight + 100;
-      }
-
-      let index = 0;
-      function checkImgs() {
-        const imgs = document.querySelectorAll('.my-photo');
-        for (let i = index; i < imgs.length; i++) {
-          if (isInSight(imgs[i])) {
-            loadImg(imgs[i]);
-            index = i;
-          }
-        }
-        // Array.from(imgs).forEach(el => {
-        //   if (isInSight(el)) {
-        //     loadImg(el);
-        //   }
-        // })
-      }
-
-      function loadImg(el) {
-        if (!el.src) {
-          const source = el.dataset.src;
-          el.src = source;
-        }
-      }
-
-      function throttle(fn, mustRun = 10) {
-        const timer = null;
-        let previous = null;
-        return function () {
-          const now = new Date();
-          const context = this;
-          const args = arguments;
-          if (!previous) {
-            previous = now;
-          }
-          const remaining = now - previous;
-          if (mustRun && remaining >= mustRun) {
-            fn.apply(context, args);
-            previous = now;
-          }
-        }
-      }
-    </script>
-    <script>
-      window.onload = checkImgs;
-      window.onscroll = throttle(checkImgs);
-    </script>
-  </div>
 </th:block>
 
 </html>
