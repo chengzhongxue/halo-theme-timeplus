@@ -2,8 +2,8 @@ plugins {
   id 'java'
 }
 
-group 'run.halo'
-version '1.0'
+group 'ink.0206'
+version '1.0.0'
 
 repositories {
   mavenCentral()
