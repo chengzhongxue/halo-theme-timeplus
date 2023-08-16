@@ -10,7 +10,8 @@
     <nav>
         <ul>
             <li class="nav-item"
-                th:with="groups=${theme.config.picture.groups}">
+                th:with="groups=${theme.config.picture.groups}"
+                th:if="${not #strings.isEmpty(groups)}">
                 <a class="icon solid fa-info-circle nav-item-name">分类</a>
                 <ul id="groups" class="nav-item-child">
                     <li th:each="group : ${photoFinder.groupBy()}"
