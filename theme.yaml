@@ -1,7 +1,7 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: halo-theme-timeplus
+  name: theme-timeplus
 spec:
   displayName: TimePlus
   author:
@@ -9,9 +9,9 @@ spec:
     website: "https://0206.ink"
   description: 移植自zhheo-TimePlus适配Halo2.x的TimePlus主题
   logo: "https://0206.ink/upload/645fac04e203a.jpeg"
-  website: "https://0206.ink?halo-theme-timeplus"
+  website: "https://0206.ink?theme-timeplus"
   repo: "https://github.com/chengzhongxue/halo-theme-timeplus"
   settingName: "theme-timeplus-setting"
   configMapName: "theme-starter-configMap"
   version: "1.0"
-  require: "*"
+  require: ">=2.8.0"
