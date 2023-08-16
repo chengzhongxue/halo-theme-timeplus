@@ -36,6 +36,15 @@ spec:
           label: 公安备案
           placeholder: 请输入公安备案号
           help: 格式：皖公网安备 xxxxxxxx 号
+    - group: picture
+      label: 图库分类
+      formSchema:
+        - $formkit: textarea
+          name: groups
+          label: 图库分类
+          help: 请输入想要展示的图库分组名称，以英文逗号隔开
+          value:
+
     - group: about
       label: 关于
       formSchema:

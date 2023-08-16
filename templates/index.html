@@ -5,18 +5,22 @@
     <!-- Header -->
     <!-- Main -->
     <div id="main">
-
-      <article class="thumb img-area">
-        <a class="image my-photo"  alt="loading" href="https://p.zhheo.com/3G75G523690781689316896367.jpeg!plog" >
-          <img class="zmki_px  my-photo" onerror="this.src='https://plog.zhheo.com/usr/themes/time/assets/img/loading.gif';this.onerror=null" 
-          data-src="https://p.zhheo.com/3G75G523690781689316896367.jpeg!plog"   />
-        </a> 
-        <h2>库迪送的环保杯</h2>
-        <p></p>
-        <p>质感很不错，一开始看到咖啡渣制作还挺担心，上手感觉还挺厚实</p>
-        <p></p>
-        <li class="tag-categorys"><a href="https://plog.zhheo.com/category/traveling/">旅行日记</a></li>
-      </article>
+      <th:block th:each="photo : ${photoFinder.listBy(param.photo_group_name)}">
+        <article class="thumb img-area">
+          <a class="image my-photo"  th:alt="${photo.spec.description}" th:href="${photo.spec.url}" >
+            <img class="zmki_px  my-photo" th:data-src="${photo.spec.url}"   />
+          </a>
+          <h2>[[${photo.spec.displayName}]]</h2>
+          <p></p>
+          <p>[[${photo.spec.description}]]</p>
+          <p></p>
+          <li class="tag-categorys"
+              th:each="group : ${photoFinder.groupBy()}"
+              th:if="${#strings.equals(param.photo_group_name,group.metadata.name)}" >
+            <a>[[${group.spec.displayName}]]</a>
+          </li>
+        </article>
+      </th:block>
      
     </div>
 
