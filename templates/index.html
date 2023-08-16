@@ -4,7 +4,7 @@
     <div id="wrapper">
         <!-- Header -->
         <!-- Main -->
-        <div id="main" th:with="groups=${theme.config.picture.groups}">
+        <div id="main" th:with="groups=${theme.config.picture.groups}" th:if="${#strings.isEmpty(groups)}">
             <th:block th:if="${#strings.isEmpty(param.photo_group_name)}">
                 <th:block th:each="group : ${photoFinder.groupBy()}"
                           th:if="${#strings.contains(groups,group.spec.displayName)}">

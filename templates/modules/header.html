@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <header id="header" th:fragment="header">
-    <a href="/">
+    <a href="/?preview-theme=theme-timeplus">
         <img class="site-logo" th:src="@{${theme.config.basics.logo}}">
     </a>
-    <h1><a href="/"><strong>[[${theme.config.basics.zmkiabout}]]</strong></a></h1>
+    <h1><a href="/?preview-theme=theme-timeplus"><strong>[[${theme.config.basics.zmkiabout}]]</strong></a></h1>
     <span class="discription">[[${theme.config.basics.zmkiabouts}]]</span>
     <nav>
         <ul>
@@ -33,7 +33,7 @@
     </nav>
     <script>
         const go = (photo_group_name) => {
-            window.location.href = '/?photo_group_name=' + photo_group_name
+            window.location.href = '/?preview-theme=theme-timeplus&photo_group_name=' + photo_group_name
         }
     </script>
 </header>
