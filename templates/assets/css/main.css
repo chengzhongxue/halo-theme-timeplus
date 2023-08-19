@@ -1219,7 +1219,7 @@ ul.icons li:last-child {
 
 ul.icons li .iconfont:before {
   font-size: 28px;
-  /* line-height: 1; */
+  line-height: 1;
   height: 28px;
   margin: auto;
   display: contents;
