@@ -76,7 +76,7 @@ spec:
                 - label: 腾讯 QQ
                   value: icon-qq-line
                 - label: 新浪微博
-                  value: icon-weibo
+                  value: icon-weibo-line
                 - label: 知乎
                   value: icon-zhihu-line
                 - label: 豆瓣
@@ -84,7 +84,7 @@ spec:
                 - label: 哔哩哔哩
                   value: icon-bilibili-line
                 - label: GitHub
-                  value: icon-github
+                  value: icon-github-line
                 - label: GitLab
                   value: icon-gitlab-line
                 - label: 百度
