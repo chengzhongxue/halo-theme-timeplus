@@ -13,5 +13,5 @@ spec:
   repo: "https://github.com/chengzhongxue/halo-theme-timeplus"
   settingName: "theme-timeplus-setting"
   configMapName: "theme-timeplus-configMap"
-  version: "1.0.0"
+  version: "1.0.1"
   require: ">=2.8.0"
