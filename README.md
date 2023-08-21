@@ -48,6 +48,9 @@
 的 [TimePlus](https://github.com/zhheo/TimePlus) 主题，作者是 [张洪Heo](https://github.com/zhheo)
 
 ## 🚨 注意事项(看我看我)
+> **本主题仅用于展示图片**，不包含文章相关模板的实现，因此可以选择作为**副主题**来使用。
+> 安装并填写主题相关配置后，可以在站点地址后加上 `?preview-theme=theme-timeplus` 来访问。
+> 无需启用本主题，因此不会影响到您现在所使用的主题。
 
 1. **本主题依赖图库插件**
 2. 如果安装主题后报错，请仔细查阅[主题说明](https://github.com/chengzhongxue/halo-theme-timeplus)
