@@ -102,6 +102,13 @@
 
 [Halo-Theme-TimePlus](https://github.com/chengzhongxue/halo-theme-timeplus) 使用 [MIT](./LICENSE) 协议开源，请遵守开源协议。
 
+☕ 赞助
+如果你觉得这个主题不错，你可以帮作者买一杯咖啡表示鼓励 ☕。（赞助的时候记得加上备注 🥰）
+![sponsor](https://0206.ink/upload/Snipaste_2023-08-22_15-14-02.png)
+
+|    时间     | 小伙伴 |   平台   | 金额 | 备注 |
+|:---------:|:---:|:------:|:--:|:--:|
+
 ## 💬 讨论
 
 如果你对主题有什么建议或者意见，欢迎提 PR & issue。
