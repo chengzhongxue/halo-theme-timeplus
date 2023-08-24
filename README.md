@@ -24,7 +24,10 @@
 <table>
   <tr>
     <td>
-      <img src="https://0206.ink/upload/8cf77aed27831f70fa76085710a00b17.png"/>
+      <img src="https://0206.ink/upload/dfdc46c1fee1b1be3b314c3594372b3.webp"/>
+    </td>
+    <td>
+      <img src="https://0206.ink/upload/4cacd3fee178fc75b9d5bf0915d1609.webp"/>
     </td>
   </tr>
 </table>
