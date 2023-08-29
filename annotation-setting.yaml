@@ -1,0 +1,13 @@
+apiVersion: v1alpha1
+kind: AnnotationSetting
+metadata:
+  generateName: annotation-setting-
+spec:
+  targetRef:
+    group: "core.halo.run"
+    kind: Photo
+  formSchema:
+    - $formkit: "color"
+      name: "nameColor"
+      value: "#ffffff"
+      label: "字体颜色颜色"

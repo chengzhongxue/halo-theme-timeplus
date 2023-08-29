@@ -1,11 +1,11 @@
 <th:block th:fragment="photo(photo)">
-    <article class="thumb img-area">
+    <article class="thumb img-area" th:with="img = ${ not #strings.isEmpty(photo.spec.cover) ? photo.spec.cover : photo.spec.url}">
         <a class="image my-photo"  th:alt="${photo.spec.description}" th:href="${photo.spec.url}" >
-            <img class="zmki_px  my-photo"  th:attr="onerror='this.src='+@{/assets/img/loading.gif}+';this.onerror=null'" th:data-src="${photo.spec.url}"   />
+            <img class="zmki_px  my-photo"  th:attr="onerror='this.src='+@{/assets/img/loading.gif}+';this.onerror=null'" th:data-src="${img}"   />
         </a>
-        <h2>[[${photo.spec.displayName}]]</h2>
+        <h2 th:style="'color:' + ${#annotations.get(photo,'nameColor')}">[[${photo.spec.displayName}]]</h2>
         <p></p>
-        <p>[[${photo.spec.description}]]</p>
+        <p th:style="'color:' + ${#annotations.get(photo,'nameColor')}">[[${photo.spec.description}]]</p>
         <p></p>
         <li class="tag-categorys"
             th:each="group : ${photoFinder.groupBy()}"
