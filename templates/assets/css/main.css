@@ -1769,7 +1769,7 @@ body {
   top: calc(100vh - 80px);
   height: 80px;
   left: 0;
-  line-height: 1;
+  line-height: 2;
   padding: 0 1.5em;
   position: fixed;
   user-select: none;
