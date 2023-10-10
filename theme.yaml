@@ -2,6 +2,10 @@ apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
   name: theme-timeplus
+  annotations:
+    # Add supports for Halo App Store
+    # https://halo.run/store/apps/app-ihpQC
+    "store.halo.run/app-id": "app-ihpQC"
 spec:
   displayName: TimePlus
   author:
@@ -10,7 +14,7 @@ spec:
   description: 移植自zhheo-TimePlus适配Halo2.x的TimePlus主题
   logo: "https://0206.ink/upload/cf44650dc27ca55b28bb0f8d3e48a93.png"
   website: "https://0206.ink?preview-theme=theme-timeplus"
-  repo: "https://github.com/chengzhongxue/halo-theme-timeplus"
+  repo: "https://githubfast.com/chengzhongxue/halo-theme-timeplus"
   settingName: "theme-timeplus-setting"
   configMapName: "theme-timeplus-configMap"
   version: "1.0.1"
