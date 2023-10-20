@@ -5,19 +5,15 @@
         <!-- Header -->
         <!-- Main -->
         <div id="main" th:with="groups=${theme.config.picture.groups}">
-            <th:block th:if="${not #strings.isEmpty(groups)}">
-                <th:block th:if="${#strings.isEmpty(param.photo_group_name)}">
-                    <th:block th:each="group : ${photoFinder.groupBy()}"
-                              th:if="${#strings.contains(groups,group.spec.displayName)}">
-                        <th:block th:each="photo : ${group.photos}">
-                            <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
-                        </th:block>
-                    </th:block>
-                </th:block>
-                <th:block th:unless="${#strings.isEmpty(param.photo_group_name)}"
-                          th:each="photo : ${photoFinder.listBy(param.photo_group_name)}">
+            <th:block th:if="${#strings.isEmpty(param.photo_group_name)}">
+                <th:block th:each="photo  : ${photoFinder.listAll()}"
+                          th:if="${not #strings.contains(groups,photo.spec.groupName)}">
                     <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
                 </th:block>
+            </th:block>
+            <th:block th:unless="${#strings.isEmpty(param.photo_group_name)}"
+                      th:each="photo : ${photoFinder.listBy(param.photo_group_name)}">
+                <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
             </th:block>
         </div>
 

@@ -10,12 +10,12 @@ spec:
   displayName: TimePlus
   author:
     name: 困困鱼
-    website: "https://0206.ink"
+    website: "https://kunkunyu.com"
   description: 移植自zhheo-TimePlus适配Halo2.x的TimePlus主题
-  logo: "https://0206.ink/upload/cf44650dc27ca55b28bb0f8d3e48a93.png"
-  website: "https://0206.ink?preview-theme=theme-timeplus"
+  logo: "https://kunkunyu.com/upload/cf44650dc27ca55b28bb0f8d3e48a93.png"
+  website: "https://kunkunyu.com?preview-theme=theme-timeplus"
   repo: "https://githubfast.com/chengzhongxue/halo-theme-timeplus"
   settingName: "theme-timeplus-setting"
   configMapName: "theme-timeplus-configMap"
-  version: "1.0.1"
+  version: "1.0.3"
   require: ">=2.8.0"

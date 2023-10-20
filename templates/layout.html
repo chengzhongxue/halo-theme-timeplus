@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
   <title th:text="${theme.config.basics.siteTitle+' - '+theme.config.basics.subTitle}"></title>
   <link rel="apple-touch-icon" th:href="${theme.config.basics.logo}">
+  <link rel="shortcut icon"
+        th:href="@{${#strings.isEmpty(theme.config.basics.logo) ?  site.favicon : theme.config.basics.logo}}"/>
   <meta name="apple-mobile-web-app-title" th:content="${theme.config.basics.siteTitle}">
   <link rel="stylesheet" type="text/css" th:href="@{/assets/css/noscript.css}">
   <link rel="stylesheet" th:href="@{/assets/css/main.css}">
