@@ -4,10 +4,9 @@
     <div id="wrapper">
         <!-- Header -->
         <!-- Main -->
-        <div id="main" th:with="groups=${theme.config.picture.groups}">
+        <div id="main">
             <th:block th:if="${#strings.isEmpty(param.photo_group_name)}">
-                <th:block th:each="photo  : ${photoFinder.listAll()}"
-                          th:if="${not #strings.contains(groups,photo.spec.groupName)}">
+                <th:block th:each="photo  : ${photoFinder.listAll()}">
                     <th:block th:replace="~{macro/photo :: photo(${photo})}"/>
                 </th:block>
             </th:block>

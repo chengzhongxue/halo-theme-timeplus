@@ -41,14 +41,6 @@ spec:
           label: 公安备案
           placeholder: 请输入公安备案号
           help: 格式：皖公网安备 xxxxxxxx 号
-    - group: picture
-      label: 不展示图库分类
-      formSchema:
-        - $formkit: textarea
-          name: groups
-          label: 不展示图库分类
-          help: 请输入不展示的图库分组photo-group，可以填入多个photo-group，以任意字符隔开,请看文档：
-          value:
 
     - group: about
       label: 关于

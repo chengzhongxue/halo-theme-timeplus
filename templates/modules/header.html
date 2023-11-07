@@ -9,12 +9,10 @@
     <span class="discription">[[${theme.config.basics.zmkiabouts}]]</span>
     <nav>
         <ul>
-            <li class="nav-item"
-                th:with="groups=${theme.config.picture.groups}">
+            <li class="nav-item">
                 <a class="icon solid fa-info-circle nav-item-name">分类</a>
                 <ul id="groups" class="nav-item-child">
                     <li th:each="group : ${photoFinder.groupBy()}"
-                        th:if="${not #strings.contains(groups,group.metadata.name)}"
                         class="category-level-0 category-parent"
                         th:group="${group.metadata.name}">
                         <a th:onclick="go([[${group.metadata.name}]])"
